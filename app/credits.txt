@@ -1,0 +1,10 @@
+Urdu PhishGuard AI
+Developed by Sibghat Ullah
+
+Backend: Flask REST API with fine-tuned BERT (multilingual) model
+Frontend: React Interface developed in collaboration with ZARYAB KHATTAK
+
+
+Model trained and exported using Google Colab GPU.
+Project scope: Detect phishing, suspicious, or safe Urdu / Roman Urdu text messages.
+Year: 2025

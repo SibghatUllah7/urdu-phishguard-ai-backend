@@ -1,0 +1,5 @@
+Urdu PhishGuard AI  
+Developed by Sibghat Ullah  
+Model trained using Google Colab (BERT Multilingual Cased)  
+Frontend collaboration – ZARYAB KHATTAK (React UI)
+

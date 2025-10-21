@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Urdu Phishing Detector | UET Peshawar</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0B1F3B;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .header {
+      background-color: #112B4A;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid #1DB954;
+    }
+    .header img {
+      height: 55px;
+    }
+    .card {
+      background-color: #112B4A;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+    .btn-submit {
+      background-color: #1DB954;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+    .btn-submit:hover {
+      background-color: #17a74a;
+    }
+    .result-box {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    .safe { background-color: #1e4620; color: #1DB954; }
+    .suspicious { background-color: #665c1e; color: #ffdd00; }
+    .phishing { background-color: #5c1e1e; color: #ff4d4d; }
+    footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: #bbb;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <img src= "static/uet_logo.jpeg" alt="UET Logo">
+    <h4 class="text-center flex-grow-1">🛡 Urdu Phishing Detector | SID Labs</h4>
+    <img src="static/sid_logo.jpeg"alt="SID Labs Logo">
+  </div>
+
+  <!-- Main Section -->
+  <div class="container text-center mt-5">
+    <div class="card p-4 mx-auto" style="max-width: 600px;">
+      <textarea id="message" class="form-control mb-3" rows="4" placeholder="✍ Paste Roman Urdu message here..."></textarea>
+      <button id="checkBtn" class="btn btn-submit w-100">🚀 Submit & Scan</button>
+      <div id="result" class="result-box mt-3"></div>
+    </div>
+    <footer>Developed by SID Labs — University of Engineering & Technology, Peshawar</footer>
+  </div>
+
+  <script>
+  document.getElementById("checkBtn").addEventListener("click", async function () {
+      const msg = document.getElementById("message").value;
+      const resultDiv = document.getElementById("result");
+      resultDiv.className = "result-box";
+
+      if (!msg.trim()) {
+          resultDiv.innerHTML = "⚠️ Please enter a message!";
+          return;
+      }
+
+      resultDiv.innerHTML = "⏳ Analyzing...";
+      try {
+          const resp = await fetch("/predict", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ message: msg })
+          });
+
+          const data = await resp.json();
+          let conf = data.confidence;
+          if (typeof conf === "number") conf = conf.toFixed(2);
+
+          if (data.label.startsWith("PHISHING")) {
+              resultDiv.classList.add("phishing");
+              resultDiv.innerHTML = `🚨 <b>PHISHING DETECTED!</b><br>Confidence: ${conf}`;
+          } else if (data.label.startsWith("SUSPICIOUS")) {
+              resultDiv.classList.add("suspicious");
+              resultDiv.innerHTML = `⚠️ <b>SUSPICIOUS — Needs Review</b><br>Confidence: ${conf}`;
+          } else {
+              resultDiv.classList.add("safe");
+              resultDiv.innerHTML = `✅ <b>SAFE MESSAGE</b><br>Confidence: ${conf}`;
+          }
+
+      } catch (err) {
+          console.error(err);
+          resultDiv.innerHTML = "❌ Error contacting server.";
+      }
+  });
+  </script>
+
+</body>
+</html>

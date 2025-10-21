@@ -1,0 +1,32 @@
+text,label
+"Apka bank account block ho gaya hai, verify karen warna ban ho jayega",PHISHING
+"JazzCash account verification zaroori hai, warna service band ho jayegi",PHISHING
+"Easypaisa account verification ke liye link par click karein",PHISHING
+"Abhi verify karein aur 5000 free balance jeetein",PHISHING
+"Ap ne jeet liye hain Rs.3000 balance, claim karne ke liye click karein",PHISHING
+"Congratulations! Aap lucky winner hain, link open karen",PHISHING
+"Muft balance hasil karne ke liye yahan click karen",PHISHING
+"Final notice: account permanently block ho jayega verification ke baghair",PHISHING
+"Hamara banking system update ho raha hai, login karein warna access band ho jayega",PHISHING
+"Prize bond result check karen, link par click karein",PHISHING
+"Aap eligible ho Rs.10,000 cash reward ke liye, claim now",PHISHING
+"Apki SIM card block hone wali hai, recharge verify karen",PHISHING
+"FREE balance offer sirf aaj ke liye, claim secure link",PHISHING
+"Abhi confirm karein warna Easypaisa account suspend ho jayega",PHISHING
+"JazzCash bonus claim karne ke liye OTP enter karein",PHISHING
+
+"Meeting at SID Labs kal 10 baje hogi",SAFE
+"Please visit https://uet.edu.pk for admission details",SAFE
+"Join official WhatsApp group: https://sid.uet.edu.pk/group",SAFE
+"University ka result kal upload ho jayega",SAFE
+"HBL official site visit karein: https://hbl.com",SAFE
+"CS class ka link ye hai: https://classroom.google.com",SAFE
+"UET ka admission form yahan milta hai, official portal se apply karein",SAFE
+"Project review meeting is scheduled for tomorrow at 3 PM",SAFE
+"Please submit your assignment via LMS",SAFE
+"SID labs official email use karein for submission",SAFE
+"University fee slip download karne ke liye official portal use karein",SAFE
+"Student ID verification ke liye sirf portal use karein, kisi link par click na karein",SAFE
+"Class cancel ho gayi hai due to weather",SAFE
+"Official notice: result portal maintenance ho raha hai",SAFE
+"Test evaluation next week se start hogi",SAFE
